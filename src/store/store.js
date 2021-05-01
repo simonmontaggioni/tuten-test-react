@@ -1,8 +1,10 @@
 const store = {
-  userEmail: [],
-  token: null,
-  bookings: {},
-  loading: false,
+  user: {
+    email: null,
+    bookings: [],
+    token: null,
+  },
+  isLoading: false,
 };
 
 export default store;
