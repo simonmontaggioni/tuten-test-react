@@ -1,7 +1,11 @@
-import React from "react";
+import LoginBox from "../components/LoginBox/LoginBox";
 
 const Login = () => {
-  return <div>Hello Login</div>;
+  return (
+    <div>
+      <LoginBox></LoginBox>
+    </div>
+  );
 };
 
 export default Login;
