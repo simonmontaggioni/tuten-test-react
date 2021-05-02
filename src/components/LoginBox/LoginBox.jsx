@@ -25,7 +25,7 @@ const LoginBox = (props) => {
     <div className="login-box">
       <div className="logo">logo</div>
       <h2 className="login-title">member login</h2>
-      <form action="" onSubmit={handleSubmit}>
+      <form className="login-form" action="" onSubmit={handleSubmit}>
         <div className="input-wrapper">
           <label className="input-label" htmlFor="email">
             Email

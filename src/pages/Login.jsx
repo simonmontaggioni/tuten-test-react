@@ -4,6 +4,8 @@ import { Redirect } from "react-router-dom";
 
 import LoginBox from "../components/LoginBox/LoginBox";
 
+import "./Login.css";
+
 const Login = (props) => {
   const handleLoginRequest = (email, password, event) => {
     event.preventDefault();
@@ -11,15 +13,17 @@ const Login = (props) => {
     props.validationRequest(email, password);
   };
   return (
-    <div>
+    <div className="login">
       {props.token.value ? (
         <Redirect to="/bookings" />
       ) : (
         <div>
           <LoginBox handleLoginRequest={handleLoginRequest}></LoginBox>
-          {props.token.isLoading
-            ? "Loading..."
-            : props.token.errorMessage || null}
+          <div className="notification">
+            {props.token.isLoading
+              ? "Loading..."
+              : props.token.errorMessage || null}
+          </div>
         </div>
       )}
     </div>

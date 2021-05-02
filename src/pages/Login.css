@@ -1,0 +1,14 @@
+.login {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.notification {
+  padding: 1.5em 0em;
+  width: 100%;
+  text-align: center;
+}
