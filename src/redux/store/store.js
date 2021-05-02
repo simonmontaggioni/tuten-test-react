@@ -1,9 +1,8 @@
 const store = {
   user: {
     email: null,
-    bookings: [],
-    token: null,
-    isLoading: false,
+    bookings: { data: [], isLoading: false, errorMessage: null },
+    token: { value: null, isLoading: false, errorMessage: null },
   },
 };
 

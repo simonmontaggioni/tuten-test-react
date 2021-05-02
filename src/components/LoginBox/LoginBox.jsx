@@ -1,6 +1,6 @@
 import "./LoginBox.css";
 
-const LoginBox = () => {
+const LoginBox = (props) => {
   return (
     <div className="login-box">
       <div className="logo">logo</div>
@@ -30,7 +30,9 @@ const LoginBox = () => {
             placeholder="Insert your password"
           />
         </div>
-        <button className="login-button">Login</button>
+        <button className="login-button" onClick={props.handleLoginRequest}>
+          Login
+        </button>
       </form>
       <footer className="login-footer">All right reserved</footer>
     </div>

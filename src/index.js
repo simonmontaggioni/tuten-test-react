@@ -6,9 +6,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import { Provider } from "react-redux";
-import { ConfigureStore } from "./redux/store/configureStore";
+import configureStore from "./redux/store/configureStore";
 
-const store = ConfigureStore();
+const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
