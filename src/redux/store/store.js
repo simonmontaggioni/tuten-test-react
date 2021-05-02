@@ -3,8 +3,8 @@ const store = {
     email: null,
     bookings: [],
     token: null,
+    isLoading: false,
   },
-  isLoading: false,
 };
 
 export default store;

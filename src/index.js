@@ -6,16 +6,9 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 import { Provider } from "react-redux";
-import { createStore, compose } from "redux";
-import reducer from "./reducers";
-import initialState from "./store/store";
+import { ConfigureStore } from "./redux/store/configureStore";
 
-const composeEnhancers =
-  (window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__()) ||
-  compose;
-
-const store = createStore(reducer, initialState, composeEnhancers);
+const store = ConfigureStore();
 
 ReactDOM.render(
   <React.StrictMode>
