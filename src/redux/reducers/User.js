@@ -1,7 +1,6 @@
 import { LOADING_TOKEN, SET_TOKEN, ERROR_TOKEN } from "../actions/ActionTypes";
 
 const User = (state = null, action) => {
-  console.log(action.payload);
   switch (action.type) {
     case SET_TOKEN:
       return {
