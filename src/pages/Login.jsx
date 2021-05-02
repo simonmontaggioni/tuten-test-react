@@ -5,10 +5,10 @@ import { Redirect } from "react-router-dom";
 import LoginBox from "../components/LoginBox/LoginBox";
 
 const Login = (props) => {
-  const handleLoginRequest = (event) => {
+  const handleLoginRequest = (email, password, event) => {
     event.preventDefault();
-    console.log("login request");
-    props.validationRequest();
+    console.log(`login request: ${email}  ${password}`);
+    props.validationRequest(email, password);
   };
   return (
     <div>
@@ -34,8 +34,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  validationRequest: () =>
-    dispatch(validationRequest("testapis@tuten.cl", "1234")),
+  validationRequest: (email, password) =>
+    dispatch(validationRequest(email, password)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
