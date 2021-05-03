@@ -101,6 +101,10 @@ export const setBookings = (bookings) => ({
   type: ActionTypes.SET_BOOKINGS,
   payload: bookings,
 });
+export const filterBookingsByID = (id) => ({
+  type: ActionTypes.FILTER_BOOKINGS_BY_ID,
+  payload: id,
+});
 
 export const loadingBookings = () => ({
   type: ActionTypes.LOADING_BOOKINGS,
