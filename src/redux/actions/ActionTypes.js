@@ -1,3 +1,8 @@
 export const SET_TOKEN = "SET_TOKEN";
 export const LOADING_TOKEN = "LOADING_TOKEN";
 export const ERROR_TOKEN = "ERROR_TOKEN";
+
+export const GET_BOOKINGS = "GET_BOOKINGS";
+export const SET_BOOKINGS = "SET_BOOKINGS";
+export const LOADING_BOOKINGS = "LOADING_BOOKINGS";
+export const ERROR_BOOKINGS = "ERROR_BOOKINGS";

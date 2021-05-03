@@ -12,15 +12,20 @@ const BookingsGrid = (props) => {
       </tr>
     );
   };
-  const renderRows = props.rows.map((row) => {
+  const renderRows = props.data.map((row, index) => {
+    const time = new Date(row.bookingTime);
+    const day = time.getDate();
+    const month = time.getMonth();
+    const year = time.getFullYear();
+
     return (
       <Row
-        key={row.id}
-        id={row.id}
-        client={row.client}
-        date={row.date}
-        address={row.address}
-        price={row.price}
+        key={index}
+        id={row.bookingId}
+        client={`${row.tutenUserClient.firstName} ${row.tutenUserClient.lastName} `}
+        date={`${day}/${month}/${year}`}
+        address={row.locationId.streetAddress}
+        price={row.bookingPrice}
       />
     );
   });

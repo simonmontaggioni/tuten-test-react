@@ -1,54 +1,15 @@
-import React from "react";
+import { useEffect } from "react";
+import { connect } from "react-redux";
+import { bookingsRequest } from "../redux/actions/ActionCreators";
 import BookingsGrid from "../components/BookingsGrid/BookingsGrid";
 
 import "./Bookings.css";
 
-const data = [
-  {
-    id: "1",
-    client: "client 1",
-    date: "tsri",
-    address: "address 1",
-    price: "price 1",
-  },
-  {
-    id: "2",
-    client: "client 2",
-    date: "tsri",
-    address: "address 1",
-    price: "price 1",
-  },
-  {
-    id: "3",
-    client: "client 3",
-    date: "tsri",
-    address: "address 1",
-    price: "price 1",
-  },
-  {
-    id: "4",
-    client: "client 4",
-    date: "tsri",
-    address: "address 1",
-    price: "price 1",
-  },
-  {
-    id: "5",
-    client: "client 5",
-    date: "tsri",
-    address: "address 1",
-    price: "price 1",
-  },
-  {
-    id: "6",
-    client: "client 6",
-    date: "tsri",
-    address: "address 1",
-    price: "price 1",
-  },
-];
+const Bookings = (props) => {
+  useEffect(() => {
+    props.bookingsRequest();
+  }, []);
 
-const Bookings = () => {
   return (
     <div className="bookings">
       <header className="bookings-header">
@@ -57,10 +18,25 @@ const Bookings = () => {
       </header>
       <div className="bookings-filters">Filters</div>
       <div className="bookings-grid-wrapper">
-        <BookingsGrid rows={data} />
+        {props.bookings.isLoading ? (
+          <div className="notification">Loading ...</div>
+        ) : (
+          <BookingsGrid data={props.bookings.data} />
+        )}
       </div>
     </div>
   );
 };
 
-export default Bookings;
+const mapStateToProps = (state) => {
+  return {
+    token: state.token,
+    bookings: state.bookings,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => ({
+  bookingsRequest: () => dispatch(bookingsRequest()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Bookings);

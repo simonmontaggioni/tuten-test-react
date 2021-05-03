@@ -32,8 +32,8 @@ const Login = (props) => {
 
 const mapStateToProps = (state) => {
   return {
-    token: state.user.token,
-    user: state.user.email,
+    token: state.token,
+    email: state.email,
   };
 };
 
