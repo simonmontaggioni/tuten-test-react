@@ -1,6 +1,8 @@
 import { useEffect } from "react";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import {
+  logoutRequest,
   applyFilters,
   bookingsRequest,
   setFilterByID,
@@ -18,42 +20,59 @@ import "./Bookings.css";
 
 const Bookings = (props) => {
   useEffect(() => {
-    props.bookingsRequest();
+    props.bookingsRequest(props.token.value);
   }, []);
+
   const handleIdFiltersChange = (idFilterValue) => {
     props.setFilterById(idFilterValue);
     props.applyFilters();
   };
+
   const handleGreaterEqualThanFiltersChange = (idGreaterThanValue) => {
     props.setfilterIdGreaterEqualThan(idGreaterThanValue);
     props.applyFilters();
   };
+
   const handleLessEqualThanFiltersChange = (idLessThanValue) => {
     props.setfilterIdLessEqualThan(idLessThanValue);
     props.applyFilters();
   };
+
   const handlePriceFiltersChange = (priceFilterValue) => {
     props.setFilterByPrice(priceFilterValue);
     props.applyFilters();
   };
+
   const handlePriceGreaterEqualThanFiltersChange = (priceGreaterThanValue) => {
     props.setfilterPriceGreaterEqualThan(priceGreaterThanValue);
     props.applyFilters();
   };
+
   const handlePriceLessEqualThanFiltersChange = (priceLessThanValue) => {
     props.setfilterPriceLessEqualThan(priceLessThanValue);
     props.applyFilters();
   };
+
   const handleAddressFiltersChange = (AddressFilterValue) => {
     props.setFilterByAddress(AddressFilterValue);
     props.applyFilters();
   };
 
+  const logoutRequest = () => {
+    props.logoutRequest();
+  };
+
+  if (props.token.value === null) {
+    return <Redirect to="/" />;
+  }
+
   return (
     <div className="bookings">
       <header className="bookings-header">
         <h1 className="bookings-title">Bookings</h1>
-        <button className="bookings-button">logout</button>
+        <button className="bookings-logout-button" onClick={logoutRequest}>
+          Logout
+        </button>
       </header>
       <div className="bookings-filters">
         <Filters
@@ -92,7 +111,8 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  bookingsRequest: () => dispatch(bookingsRequest()),
+  logoutRequest: () => dispatch(logoutRequest()),
+  bookingsRequest: (token) => dispatch(bookingsRequest(token)),
   applyFilters: () => dispatch(applyFilters()),
   setFilterById: (id) => dispatch(setFilterByID(id)),
   setfilterIdGreaterEqualThan: (idGreaterThanValue) =>

@@ -40,6 +40,10 @@ export const validationRequest = (email, password) => (dispatch) => {
     });
 };
 
+export const logoutRequest = () => (dispatch) => {
+  dispatch(setToken(null));
+};
+
 export const setToken = (token) => ({
   type: ActionTypes.SET_TOKEN,
   payload: token,
@@ -54,7 +58,7 @@ export const errorToken = (errorMessage) => ({
   payload: errorMessage,
 });
 
-export const bookingsRequest = () => (dispatch) => {
+export const bookingsRequest = (token) => (dispatch) => {
   dispatch(loadingBookings());
 
   return fetch(
@@ -66,7 +70,7 @@ export const bookingsRequest = () => (dispatch) => {
         "Content-Type": "application/json",
         adminemail: "testapis@tuten.cl",
         app: "APP_BCK",
-        token: "testapis@tuten.clo4ke9ihu6ds9klecoj82h0d8q2",
+        token: token,
         Accept: "aplication/json",
       },
       credentials: "same-origin",
