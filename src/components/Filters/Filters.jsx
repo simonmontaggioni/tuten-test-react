@@ -5,16 +5,28 @@ const Filters = (props) => {
     const idFilterValue = e.target.value;
     props.handleIdFiltersChange(idFilterValue);
   };
-  const handleGreaterEqualThanChange = (e) => {
+  const handleIdGreaterEqualThanChange = (e) => {
     const idGreaterThanValue = e.target.value;
     props.handleGreaterEqualThanFiltersChange(idGreaterThanValue);
   };
-  const handleLessEqualThanChange = (e) => {
+  const handleIdLessEqualThanChange = (e) => {
     const idLessThanValue = e.target.value;
     props.handleLessEqualThanFiltersChange(idLessThanValue);
   };
+  const handlePriceChange = (e) => {
+    const priceFilterValue = e.target.value;
+    props.handlePriceFiltersChange(priceFilterValue);
+  };
+  const handlePriceGreaterEqualThanChange = (e) => {
+    const priceGreaterThanValue = e.target.value;
+    props.handlePriceGreaterEqualThanFiltersChange(priceGreaterThanValue);
+  };
+  const handlePriceLessEqualThanChange = (e) => {
+    const priceLessThanValue = e.target.value;
+    props.handlePriceLessEqualThanFiltersChange(priceLessThanValue);
+  };
   return (
-    <div className="filters">
+    <div className="filters-container">
       <div className="id-filter-wrapper">
         <div className="id-filter-number">
           <label htmlFor="id-filter">ID</label>
@@ -28,25 +40,60 @@ const Filters = (props) => {
           />
         </div>
         <div className="id-filter-greater-equal-than">
-          <label htmlFor="greater-equal-than">Mayor igual que:</label>
+          <label htmlFor="id-greater-equal-than">Mayor igual que:</label>
           <input
             type="number"
-            name="greater-equal-than"
-            id="greater-equal-than"
+            name="id-greater-equal-than"
+            id="id-greater-equal-than"
             placeholder="id number"
             min="0"
-            onChange={handleGreaterEqualThanChange}
+            onChange={handleIdGreaterEqualThanChange}
           />
         </div>
         <div className="id-filter-less-equal-than">
-          <label htmlFor="less-equal-than">Menor igual que:</label>
+          <label htmlFor="id-less-equal-than">Menor igual que:</label>
           <input
             type="number"
-            name="less-equal-than"
-            id="less-equal-than"
+            name="id-less-equal-than"
+            id="id-less-equal-than"
             placeholder="id number"
             min="0"
-            onChange={handleLessEqualThanChange}
+            onChange={handleIdLessEqualThanChange}
+          />
+        </div>
+      </div>
+      <div className="price-filter-wrapper">
+        <div className="price-filter-number">
+          <label htmlFor="price-filter">Price</label>
+          <input
+            type="number"
+            name="price-filter"
+            id="price-filter"
+            placeholder="price"
+            min="0"
+            onChange={handlePriceChange}
+          />
+        </div>
+        <div className="price-filter-greater-equal-than">
+          <label htmlFor="price-greater-equal-than">Mayor igual que:</label>
+          <input
+            type="number"
+            name="price-greater-equal-than"
+            id="price-greater-equal-than"
+            placeholder="price"
+            min="0"
+            onChange={handlePriceGreaterEqualThanChange}
+          />
+        </div>
+        <div className="price-filter-less-equal-than">
+          <label htmlFor="price-less-equal-than">Menor igual que:</label>
+          <input
+            type="number"
+            name="price-less-equal-than"
+            id="price-less-equal-than"
+            placeholder="price"
+            min="0"
+            onChange={handlePriceLessEqualThanChange}
           />
         </div>
       </div>

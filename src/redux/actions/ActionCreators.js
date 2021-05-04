@@ -120,6 +120,23 @@ export const setfilterIdLessEqualThan = (idLessEqualThanFilterValue) => ({
   payload: idLessEqualThanFilterValue,
 });
 
+export const setFilterByPrice = (priceFilterValue) => ({
+  type: ActionTypes.SET_FILTER_BY_PRICE,
+  payload: priceFilterValue,
+});
+
+export const setfilterPriceGreaterEqualThan = (
+  priceGreaterEqualThanFilterValue
+) => ({
+  type: ActionTypes.SET_FILTER_PRICE_GREATER_EQUAL_THAN,
+  payload: priceGreaterEqualThanFilterValue,
+});
+
+export const setfilterPriceLessEqualThan = (priceLessEqualThanFilterValue) => ({
+  type: ActionTypes.SET_FILTER_PRICE_LESS_EQUAL_THAN,
+  payload: priceLessEqualThanFilterValue,
+});
+
 export const loadingBookings = () => ({
   type: ActionTypes.LOADING_BOOKINGS,
 });

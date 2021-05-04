@@ -6,6 +6,9 @@ import {
   setFilterByID,
   setfilterIdGreaterEqualThan,
   setfilterIdLessEqualThan,
+  setFilterByPrice,
+  setfilterPriceGreaterEqualThan,
+  setfilterPriceLessEqualThan,
 } from "../redux/actions/ActionCreators";
 import BookingsGrid from "../components/BookingsGrid/BookingsGrid";
 import Filters from "../components/Filters/Filters";
@@ -28,6 +31,18 @@ const Bookings = (props) => {
     props.setfilterIdLessEqualThan(idLessThanValue);
     props.applyFilters();
   };
+  const handlePriceFiltersChange = (priceFilterValue) => {
+    props.setFilterByPrice(priceFilterValue);
+    props.applyFilters();
+  };
+  const handlePriceGreaterEqualThanFiltersChange = (priceGreaterThanValue) => {
+    props.setfilterPriceGreaterEqualThan(priceGreaterThanValue);
+    props.applyFilters();
+  };
+  const handlePriceLessEqualThanFiltersChange = (priceLessThanValue) => {
+    props.setfilterPriceLessEqualThan(priceLessThanValue);
+    props.applyFilters();
+  };
 
   return (
     <div className="bookings">
@@ -42,6 +57,13 @@ const Bookings = (props) => {
             handleGreaterEqualThanFiltersChange
           }
           handleLessEqualThanFiltersChange={handleLessEqualThanFiltersChange}
+          handlePriceFiltersChange={handlePriceFiltersChange}
+          handlePriceGreaterEqualThanFiltersChange={
+            handlePriceGreaterEqualThanFiltersChange
+          }
+          handlePriceLessEqualThanFiltersChange={
+            handlePriceLessEqualThanFiltersChange
+          }
           filtersValues={props.bookings.filters}
         ></Filters>
       </div>
@@ -71,6 +93,11 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(setfilterIdGreaterEqualThan(idGreaterThanValue)),
   setfilterIdLessEqualThan: (idLessThanValue) =>
     dispatch(setfilterIdLessEqualThan(idLessThanValue)),
+  setFilterByPrice: (id) => dispatch(setFilterByPrice(id)),
+  setfilterPriceGreaterEqualThan: (priceGreaterThanValue) =>
+    dispatch(setfilterPriceGreaterEqualThan(priceGreaterThanValue)),
+  setfilterPriceLessEqualThan: (priceLessThanValue) =>
+    dispatch(setfilterPriceLessEqualThan(priceLessThanValue)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bookings);
