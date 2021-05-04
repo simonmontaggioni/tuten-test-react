@@ -9,7 +9,6 @@ import "./Login.css";
 const Login = (props) => {
   const handleLoginRequest = (email, password, event) => {
     event.preventDefault();
-    console.log(`login request: ${email}  ${password}`);
     props.validationRequest(email, password);
   };
   return (

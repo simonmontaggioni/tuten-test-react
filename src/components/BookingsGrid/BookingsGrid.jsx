@@ -1,7 +1,6 @@
 import "./BookingsGrid.css";
 
 const BookingsGrid = (props) => {
-  console.log(props.data);
   const Row = ({ id, client, date, address, price } = props) => {
     if (id === undefined) {
       return (
@@ -20,6 +19,7 @@ const BookingsGrid = (props) => {
       </tr>
     );
   };
+
   const renderRows = props.data.map((row, index) => {
     const time = new Date(row.bookingTime);
     const day = time.getDate();
@@ -37,6 +37,7 @@ const BookingsGrid = (props) => {
       />
     );
   });
+
   return (
     <table className="table">
       <thead className="table-header">

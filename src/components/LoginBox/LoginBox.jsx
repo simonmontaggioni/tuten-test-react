@@ -53,6 +53,7 @@ const LoginBox = (props) => {
             name="password"
             id="password"
             placeholder="Insert your password"
+            autoComplete=""
             onChange={handlePasswordChange}
           />
         </div>

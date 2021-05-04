@@ -15,7 +15,7 @@
   border: 1px solid var(--tuten-color);
   background-color: var(--tuten-color);
   border-radius: 1em;
-  box-shadow: 5px 5px 10px 1px darkgray;
+  box-shadow: 5px 5px 10px 1px rgba(10, 3, 3, 0.658);
   position: relative;
 }
 
@@ -61,6 +61,7 @@
 .input-field {
   border-radius: 10px;
   padding: 10px;
+  border: #1ffbff;
 }
 
 .login-button {
