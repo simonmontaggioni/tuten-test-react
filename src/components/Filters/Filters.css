@@ -1,37 +1,56 @@
-.id-filter-wrapper * {
-  /* border: solid 0.5px; */
+.filters-container * {
+  --tuten-color-light: #1ffbff;
+  --tuten-color: #00c0c3;
+  --tuten-color-dark: #177476;
+  --tuten-color-dark-transparency: #17747671;
 }
 
 .filters-container {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2em;
   padding-bottom: 2em;
 }
 
 .id-filter-wrapper,
-.price-filter-wrapper {
-  display: flex;
+.price-filter-wrapper,
+.address-filter-wrapper {
+  /* display: flex; */
   align-items: stretch;
   justify-content: center;
-  padding: 0.5em;
+  padding: 1em;
+  border-radius: 5px;
+  border-width: 0.5px;
+  border-color: var(--tuten-color);
+  box-shadow: 3px 3px 5px 0.5px var(--tuten-color-dark-transparency);
 }
 
-.id-filter-wrapper div,
-.price-filter-wrapper div {
-  /* display: flex; */
+.id-filter-wrapper legend,
+.price-filter-wrapper legend,
+.address-filter-wrapper legend {
+  padding: 0em 1em;
+  color: var(--tuten-color-dark);
+}
+
+.filters-container .input-wrapper {
+  display: flex;
+  height: 1.5em;
+  margin: 0.5em 0em;
 }
 
 .id-filter-wrapper label,
-.price-filter-wrapper label {
+.price-filter-wrapper label,
+.address-filter label {
   display: block;
+  text-align: right;
+  font-size: 0.9em;
+  padding-right: 1em;
   width: 100%;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
 }
 .id-filter-wrapper input,
-.price-filter-wrapper input {
-  display: block;
-  /* width: 50%; */
+.price-filter-wrapper input,
+.address-filter input {
+  /* display: block; */
+  width: 100%;
   text-align: center;
 }
