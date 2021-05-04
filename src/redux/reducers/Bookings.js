@@ -41,6 +41,7 @@ const applyFilters = (
     const filteredBookingsWithIdLessEqualThan = filteredBookings.filter(
       (booking) => booking.bookingId <= idLessEqualThanFilterValue
     );
+    filteredBookings = filteredBookingsWithIdLessEqualThan;
   }
   if (priceFilterValue !== null) {
     const filteredBookingsByPrice = filteredBookings.filter((booking) =>
