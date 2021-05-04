@@ -111,6 +111,11 @@ export const setFilterByID = (idFilterValue) => ({
   payload: idFilterValue,
 });
 
+export const setFilterByAddress = (addressFilterValue) => ({
+  type: ActionTypes.SET_FILTER_BY_ADDRESS,
+  payload: addressFilterValue,
+});
+
 export const setfilterIdGreaterEqualThan = (idGreaterEqualThanFilterValue) => ({
   type: ActionTypes.SET_FILTER_ID_GREATER_EQUAL_THAN,
   payload: idGreaterEqualThanFilterValue,

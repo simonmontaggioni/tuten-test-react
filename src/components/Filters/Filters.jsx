@@ -25,10 +25,15 @@ const Filters = (props) => {
     const priceLessThanValue = e.target.value;
     props.handlePriceLessEqualThanFiltersChange(priceLessThanValue);
   };
+  const handleAddressChange = (e) => {
+    const addressFilterValue = e.target.value;
+    props.handleAddressFiltersChange(addressFilterValue);
+  };
   return (
     <div className="filters-container">
-      <div className="id-filter-wrapper">
-        <div className="id-filter-number">
+      <fieldset className="id-filter-wrapper">
+        <legend>Filtros por ID</legend>
+        <div className="input-wrapper id-filter-number">
           <label htmlFor="id-filter">ID</label>
           <input
             type="number"
@@ -39,7 +44,7 @@ const Filters = (props) => {
             onChange={handleIdChange}
           />
         </div>
-        <div className="id-filter-greater-equal-than">
+        <div className="input-wrapper id-filter-greater-equal-than">
           <label htmlFor="id-greater-equal-than">Mayor igual que:</label>
           <input
             type="number"
@@ -50,7 +55,7 @@ const Filters = (props) => {
             onChange={handleIdGreaterEqualThanChange}
           />
         </div>
-        <div className="id-filter-less-equal-than">
+        <div className="input-wrapper id-filter-less-equal-than">
           <label htmlFor="id-less-equal-than">Menor igual que:</label>
           <input
             type="number"
@@ -61,9 +66,10 @@ const Filters = (props) => {
             onChange={handleIdLessEqualThanChange}
           />
         </div>
-      </div>
-      <div className="price-filter-wrapper">
-        <div className="price-filter-number">
+      </fieldset>
+      <fieldset className="price-filter-wrapper">
+        <legend>Filtros por precio</legend>
+        <div className="input-wrapper price-filter-number">
           <label htmlFor="price-filter">Price</label>
           <input
             type="number"
@@ -74,7 +80,7 @@ const Filters = (props) => {
             onChange={handlePriceChange}
           />
         </div>
-        <div className="price-filter-greater-equal-than">
+        <div className="input-wrapper price-filter-greater-equal-than">
           <label htmlFor="price-greater-equal-than">Mayor igual que:</label>
           <input
             type="number"
@@ -85,7 +91,7 @@ const Filters = (props) => {
             onChange={handlePriceGreaterEqualThanChange}
           />
         </div>
-        <div className="price-filter-less-equal-than">
+        <div className="input-wrapper price-filter-less-equal-than">
           <label htmlFor="price-less-equal-than">Menor igual que:</label>
           <input
             type="number"
@@ -96,7 +102,20 @@ const Filters = (props) => {
             onChange={handlePriceLessEqualThanChange}
           />
         </div>
-      </div>
+      </fieldset>
+      <fieldset className="address-filter-wrapper">
+        <legend>Filtrar por dirrección</legend>
+        <div className="input-wrapper address-filter">
+          <label htmlFor="address-filter">Address</label>
+          <input
+            type="text"
+            name="address-filter"
+            id="address-filter"
+            placeholder="address"
+            onChange={handleAddressChange}
+          />
+        </div>
+      </fieldset>
     </div>
   );
 };

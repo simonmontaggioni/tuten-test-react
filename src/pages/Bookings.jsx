@@ -4,6 +4,7 @@ import {
   applyFilters,
   bookingsRequest,
   setFilterByID,
+  setFilterByAddress,
   setfilterIdGreaterEqualThan,
   setfilterIdLessEqualThan,
   setFilterByPrice,
@@ -43,6 +44,10 @@ const Bookings = (props) => {
     props.setfilterPriceLessEqualThan(priceLessThanValue);
     props.applyFilters();
   };
+  const handleAddressFiltersChange = (AddressFilterValue) => {
+    props.setFilterByAddress(AddressFilterValue);
+    props.applyFilters();
+  };
 
   return (
     <div className="bookings">
@@ -52,6 +57,7 @@ const Bookings = (props) => {
       </header>
       <div className="bookings-filters">
         <Filters
+          handleAddressFiltersChange={handleAddressFiltersChange}
           handleIdFiltersChange={handleIdFiltersChange}
           handleGreaterEqualThanFiltersChange={
             handleGreaterEqualThanFiltersChange
@@ -98,6 +104,7 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(setfilterPriceGreaterEqualThan(priceGreaterThanValue)),
   setfilterPriceLessEqualThan: (priceLessThanValue) =>
     dispatch(setfilterPriceLessEqualThan(priceLessThanValue)),
+  setFilterByAddress: (address) => dispatch(setFilterByAddress(address)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bookings);

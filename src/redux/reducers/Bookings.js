@@ -9,6 +9,7 @@ import {
   SET_FILTER_BY_PRICE,
   SET_FILTER_PRICE_GREATER_EQUAL_THAN,
   SET_FILTER_PRICE_LESS_EQUAL_THAN,
+  SET_FILTER_BY_ADDRESS,
 } from "../actions/ActionTypes";
 import initialStore from "../store/store";
 
@@ -20,9 +21,10 @@ const applyFilters = (
   priceFilterValue = null,
   priceGreaterEqualThanFilterValue = null,
   priceLessEqualThanFilterValue = null,
-  addressFilter
+  addressFilterValue = null
 ) => {
   let filteredBookings = bookings;
+
   if (idFilterValue !== null) {
     const filteredBookingsById = filteredBookings.filter((booking) =>
       booking.bookingId.toString().includes(idFilterValue)
@@ -58,16 +60,33 @@ const applyFilters = (
     );
     filteredBookings = filteredBookingsWithPriceLessEqualThan;
   }
+  if (addressFilterValue !== null) {
+    const filteredBookingsByAddress = filteredBookings.filter((booking) =>
+      booking.locationId.streetAddress
+        .toLowerCase()
+        .includes(addressFilterValue.toLowerCase())
+    );
+    filteredBookings = filteredBookingsByAddress;
+  }
 
   console.log(
-    "%c filtered: %o %o %o %o %o %o %o",
-    "font-size: 2em; background: aqua;",
+    `%c Filters applied:
+    id %o
+    >= id %o
+    <=id %o
+    price %o
+    >= price %o
+    <= price %o
+    address %o
+    %o`,
+    "color: blue;",
     idFilterValue,
     idGreaterEqualThanFilterValue,
     idLessEqualThanFilterValue,
     priceFilterValue,
     priceGreaterEqualThanFilterValue,
     priceLessEqualThanFilterValue,
+    addressFilterValue,
     filteredBookings
   );
 
@@ -134,6 +153,12 @@ const Bookings = (bookings = initialStore, action) => {
         ...bookings,
         filters: { ...bookings.filters, priceLessEqualThanFilterValue },
       };
+    case SET_FILTER_BY_ADDRESS:
+      const addressFilterValue = action.payload;
+      return {
+        ...bookings,
+        filters: { ...bookings.filters, addressFilterValue },
+      };
     case APPLY_FILTERS:
       return {
         ...bookings,
@@ -144,7 +169,8 @@ const Bookings = (bookings = initialStore, action) => {
           bookings.filters.idLessEqualThanFilterValue,
           bookings.filters.priceFilterValue,
           bookings.filters.priceGreaterEqualThanFilterValue,
-          bookings.filters.priceLessEqualThanFilterValue
+          bookings.filters.priceLessEqualThanFilterValue,
+          bookings.filters.addressFilterValue
         ),
       };
     default:
