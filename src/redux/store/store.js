@@ -1,10 +1,10 @@
 const store = {
-  email: null,
   bookings: {
     data: [],
     isLoading: false,
     errorMessage: null,
     filteredBookings: [],
+    filters: { idFilterValue: "", idGreaterEqualThanFilterValue: 0 },
   },
   token: {
     value: null,

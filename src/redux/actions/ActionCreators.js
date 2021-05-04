@@ -101,9 +101,23 @@ export const setBookings = (bookings) => ({
   type: ActionTypes.SET_BOOKINGS,
   payload: bookings,
 });
-export const filterBookingsByID = (id) => ({
-  type: ActionTypes.FILTER_BOOKINGS_BY_ID,
-  payload: id,
+
+export const applyFilters = () => ({
+  type: ActionTypes.APPLY_FILTERS,
+});
+
+export const setFilterByID = (idFilterValue) => ({
+  type: ActionTypes.SET_FILTER_BY_ID,
+  payload: idFilterValue,
+});
+
+export const setfilterIdGreaterEqualThan = (idGreaterEqualThanFilterValue) => ({
+  type: ActionTypes.SET_FILTER_ID_GREATER_EQUAL_THAN,
+  payload: idGreaterEqualThanFilterValue,
+});
+export const setfilterIdLessEqualThan = (idLessEqualThanFilterValue) => ({
+  type: ActionTypes.SET_FILTER_ID_LESS_EQUAL_THAN,
+  payload: idLessEqualThanFilterValue,
 });
 
 export const loadingBookings = () => ({

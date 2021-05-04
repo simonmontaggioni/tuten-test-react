@@ -1,0 +1,31 @@
+.id-filter-wrapper * {
+  /* border: solid 0.5px; */
+}
+
+.filters {
+  display: flex;
+}
+
+.id-filter-wrapper {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 0.5em;
+}
+
+.id-filter-wrapper div {
+  /* display: flex; */
+}
+
+.id-filter-wrapper label {
+  display: block;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.id-filter-wrapper input {
+  display: block;
+  /* width: 50%; */
+  text-align: center;
+}
