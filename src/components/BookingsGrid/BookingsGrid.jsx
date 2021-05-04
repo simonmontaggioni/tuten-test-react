@@ -1,7 +1,15 @@
 import "./BookingsGrid.css";
 
 const BookingsGrid = (props) => {
+  console.log(props.data);
   const Row = ({ id, client, date, address, price } = props) => {
+    if (id === undefined) {
+      return (
+        <tr className="table-row">
+          <td colSpan={5}>No hay datos </td>
+        </tr>
+      );
+    }
     return (
       <tr className="table-row">
         <td>{id}</td>
@@ -33,14 +41,16 @@ const BookingsGrid = (props) => {
     <table className="table">
       <thead className="table-header">
         <tr className="table-header-row">
-          <th>BookingId</th>
-          <th>Cliente</th>
-          <th>Fecha de Creación</th>
-          <th>Dirección</th>
-          <th>Precio</th>
+          <th id="bookingId">BookingId</th>
+          <th id="client">Cliente</th>
+          <th id="date">Fecha de Creación</th>
+          <th id="address">Dirección</th>
+          <th id="price">Precio</th>
         </tr>
       </thead>
-      <tbody>{renderRows}</tbody>
+      <tbody className="table-body">
+        {props.data.length > 0 ? renderRows : <Row />}
+      </tbody>
     </table>
   );
 };

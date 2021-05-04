@@ -4,18 +4,44 @@
   width: 100%;
   text-align: center;
   box-shadow: 3px 3px 10px 1px rgb(154, 155, 155);
+  font-size: 0.9em;
+  padding: 0.5em;
+  border-collapse: separate;
 }
 
+#bookingId {
+  width: 10%;
+}
+#client {
+  width: 15%;
+}
+#date {
+  width: 20%;
+}
+#address {
+  width: 45%;
+}
+
+#price {
+  width: 10%;
+}
 .table-header tr {
-  background-color: rgb(157, 201, 211);
-  border: 1px solid rgb(59, 127, 143);
-  height: 3em;
+  border: solid 2px;
+  background-color: var(--tuten-color-light);
+  border: 2px solid var(--tuten-color-dark);
+  height: 4em;
 }
 
 .table-row:nth-child(even) {
   background-color: rgb(180, 230, 241);
+  border: solid 1px;
 }
 
 .table-row {
   height: 2em;
+}
+
+.table-row td {
+  padding: 0.5em 1em;
+  line-height: 1.5em;
 }
