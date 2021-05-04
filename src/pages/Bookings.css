@@ -1,3 +1,10 @@
+.bookings * {
+  --tuten-color-light: #1ffbff;
+  --tuten-color: #00c0c3;
+  --tuten-color-dark: #177476;
+  --tuten-color-dark-transparency: #17747671;
+}
+
 .bookings {
   display: grid;
   grid-template-columns: 90%;

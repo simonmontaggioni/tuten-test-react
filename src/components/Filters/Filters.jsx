@@ -104,7 +104,7 @@ const Filters = (props) => {
         </div>
       </fieldset>
       <fieldset className="address-filter-wrapper">
-        <legend>Filtrar por dirrección</legend>
+        <legend>Filtrar por dirección</legend>
         <div className="input-wrapper address-filter">
           <label htmlFor="address-filter">Address</label>
           <input
