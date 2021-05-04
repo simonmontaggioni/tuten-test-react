@@ -14,13 +14,38 @@
 
 .bookings-header {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  border-bottom: #00c0c3 solid 1px;
+  margin-bottom: 50px;
 }
 
+.bookings-title {
+  color: var(--tuten-color);
+  font-size: 5em;
+  font-weight: bolder;
+  text-shadow: 0px 0px 1px var(--tuten-color-dark),
+    0px 0px 2px var(--tuten-color-dark), 0px 0px 3px var(--tuten-color-dark);
+}
 .bookings-filters {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: fit-content;
+}
+
+.bookings-logout-button {
+  width: 100px;
+  height: 30px;
+  background-color: unset;
+  border-radius: 5px;
+  border: solid 1px red;
+  font-size: 1.1em;
+  color: var(--tuten-color-dark);
+  font-weight: bolder;
+}
+
+.bookings-logout-button:hover {
+  background-color: red;
+  color: var(--tuten-color-dark);
+  cursor: pointer;
 }
