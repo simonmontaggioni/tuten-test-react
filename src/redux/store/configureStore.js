@@ -3,6 +3,7 @@ import { composeWithDevTools } from "redux-devtools-extension";
 import thunkMiddleware from "redux-thunk";
 import loggerMiddleware from "redux-logger";
 import initialStore from "./store";
+import Email from "../reducers/Email";
 import Token from "../reducers/Token";
 import Bookings from "../reducers/Bookings";
 
@@ -15,6 +16,7 @@ const configureStore = () => {
 
   const store = createStore(
     combineReducers({
+      email: Email,
       token: Token,
       bookings: Bookings,
     }),

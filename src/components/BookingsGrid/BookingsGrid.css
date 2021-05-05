@@ -41,6 +41,13 @@
   height: 2em;
 }
 
+.empty-row {
+  height: 4em;
+  font-size: 1em;
+  font-weight: bold;
+  color: brown;
+}
+
 .table-row td {
   padding: 0.5em 1em;
   line-height: 1.5em;

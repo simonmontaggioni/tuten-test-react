@@ -1,7 +1,7 @@
-import { useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import {
+  setUserEmail,
   logoutRequest,
   applyFilters,
   bookingsRequest,
@@ -19,9 +19,15 @@ import Filters from "../components/Filters/Filters";
 import "./Bookings.css";
 
 const Bookings = (props) => {
-  useEffect(() => {
-    props.bookingsRequest(props.token.value);
-  }, []);
+  const handleEmailChange = (userEmail) => {
+    props.setUserEmail(userEmail);
+  };
+
+  const handleEmailSearch = () => {
+    console.log("%c Email: %o", "font-size: 2em", props.email.value);
+    props.bookingsRequest(props.token.value, props.email.value);
+    // props.applyFilters();
+  };
 
   const handleIdFiltersChange = (idFilterValue) => {
     props.setFilterById(idFilterValue);
@@ -77,6 +83,8 @@ const Bookings = (props) => {
       <div className="bookings-filters">
         <Filters
           handleAddressFiltersChange={handleAddressFiltersChange}
+          handleEmailChange={handleEmailChange}
+          handleEmailSearch={handleEmailSearch}
           handleIdFiltersChange={handleIdFiltersChange}
           handleGreaterEqualThanFiltersChange={
             handleGreaterEqualThanFiltersChange
@@ -93,11 +101,14 @@ const Bookings = (props) => {
         ></Filters>
       </div>
       <div className="bookings-grid-wrapper">
-        {props.bookings.isLoading ? (
+        {/* {props.bookings.isLoading ? (
           <div className="notification">Loading ...</div>
-        ) : (
-          <BookingsGrid data={props.bookings.filteredBookings} />
-        )}
+        ) : ( */}
+        <BookingsGrid
+          data={props.bookings.filteredBookings}
+          isLoading={props.bookings.isLoading}
+        />
+        {/* )} */}
       </div>
     </div>
   );
@@ -105,25 +116,37 @@ const Bookings = (props) => {
 
 const mapStateToProps = (state) => {
   return {
+    email: state.email,
     token: state.token,
     bookings: state.bookings,
   };
 };
 
 const mapDispatchToProps = (dispatch) => ({
+  setUserEmail: (userEmail) => dispatch(setUserEmail(userEmail)),
+
   logoutRequest: () => dispatch(logoutRequest()),
-  bookingsRequest: (token) => dispatch(bookingsRequest(token)),
+
+  bookingsRequest: (token, emailValue) =>
+    dispatch(bookingsRequest(token, emailValue)),
+
   applyFilters: () => dispatch(applyFilters()),
+
   setFilterById: (id) => dispatch(setFilterByID(id)),
+
   setfilterIdGreaterEqualThan: (idGreaterThanValue) =>
     dispatch(setfilterIdGreaterEqualThan(idGreaterThanValue)),
+
   setfilterIdLessEqualThan: (idLessThanValue) =>
     dispatch(setfilterIdLessEqualThan(idLessThanValue)),
   setFilterByPrice: (id) => dispatch(setFilterByPrice(id)),
+
   setfilterPriceGreaterEqualThan: (priceGreaterThanValue) =>
     dispatch(setfilterPriceGreaterEqualThan(priceGreaterThanValue)),
+
   setfilterPriceLessEqualThan: (priceLessThanValue) =>
     dispatch(setfilterPriceLessEqualThan(priceLessThanValue)),
+
   setFilterByAddress: (address) => dispatch(setFilterByAddress(address)),
 });
 

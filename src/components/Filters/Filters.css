@@ -1,22 +1,26 @@
 .filters-container {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2em;
-  padding-bottom: 2em;
+  grid-template-columns: 2fr 2fr 2fr;
+  gap: 1em;
 }
 
 .id-filter-wrapper,
 .price-filter-wrapper,
+.user-email-filter-wrapper,
 .address-filter-wrapper {
-  padding: 1em;
+  padding: 0.5em;
   border-radius: 5px;
   border-width: 0.5px;
   border-color: var(--tuten-color);
   box-shadow: 3px 3px 5px 0.5px var(--tuten-color-dark-transparency);
 }
+.address-filter-wrapper {
+  grid-column: 1/4;
+}
 
 .id-filter-wrapper legend,
 .price-filter-wrapper legend,
+.user-email-filter-wrapper legend,
 .address-filter-wrapper legend {
   padding: 0em 1em;
   color: var(--tuten-color-dark);
@@ -24,23 +28,49 @@
 
 .filters-container .input-wrapper {
   display: flex;
+  align-items: center;
   height: 1.5em;
-  margin: 0.5em 0em;
+  margin: 1em 0em;
 }
 
 .id-filter-wrapper label,
 .price-filter-wrapper label,
+.user-email-filter-wrapper label,
 .address-filter label {
-  display: block;
+  display: inline-block;
   text-align: right;
-  font-size: 0.9em;
+  font-size: 0.8em;
   padding-right: 1em;
   width: 100%;
 }
+
 .id-filter-wrapper input,
 .price-filter-wrapper input,
+.user-email-filter-wrapper input,
 .address-filter input {
-  /* display: block; */
-  width: 100%;
+  width: 120%;
+  height: 2em;
   text-align: center;
+}
+
+.user-email-filter-wrapper input,
+.address-filter input {
+  width: 300%;
+}
+
+.user-email-filter-wrapper {
+  /* border-radius: 5px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.user-email-filter-wrapper button {
+  width: 100%;
+  height: 2.5em;
+  background-color: rgba(147, 240, 240, 0.296);
+  border-radius: 5px;
+}
+.user-email-filter-wrapper button:hover {
+  cursor: pointer;
+  background-color: var(--tuten-color-light);
 }

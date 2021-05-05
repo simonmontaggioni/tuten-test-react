@@ -1,4 +1,7 @@
 const store = {
+  email: {
+    value: null,
+  },
   bookings: {
     data: [],
     isLoading: false,

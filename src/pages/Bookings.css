@@ -8,7 +8,7 @@
 .bookings {
   display: grid;
   grid-template-columns: 90%;
-  grid-template-rows: 1fr 1fr auto;
+  grid-template-rows: 20% auto auto;
   justify-content: center;
 }
 
@@ -17,7 +17,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: #00c0c3 solid 1px;
-  margin-bottom: 50px;
+  margin-bottom: 5px;
 }
 
 .bookings-title {

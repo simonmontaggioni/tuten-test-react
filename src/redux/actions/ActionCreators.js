@@ -2,6 +2,11 @@ import * as ActionTypes from "./ActionTypes";
 
 const baseUrl = "https://dev.tuten.cl:443/TutenREST/rest/user/";
 
+export const setUserEmail = (email) => ({
+  type: ActionTypes.SET_USER_EMAIL,
+  payload: email,
+});
+
 export const validationRequest = (email, password) => (dispatch) => {
   dispatch(loadingToken());
 
@@ -58,11 +63,12 @@ export const errorToken = (errorMessage) => ({
   payload: errorMessage,
 });
 
-export const bookingsRequest = (token) => (dispatch) => {
+export const bookingsRequest = (token, emailValue) => (dispatch) => {
+  console.log("%c Email: %o", "font-size: 2em", emailValue);
   dispatch(loadingBookings());
 
   return fetch(
-    `https://dev.tuten.cl:443/TutenREST/rest/user/contacto%40tuten.cl/bookings?current=true`,
+    `https://dev.tuten.cl:443/TutenREST/rest/user/${emailValue}/bookings?current=true`,
     {
       method: "GET",
       body: null,

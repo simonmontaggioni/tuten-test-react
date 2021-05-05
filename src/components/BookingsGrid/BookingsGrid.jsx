@@ -2,13 +2,6 @@ import "./BookingsGrid.css";
 
 const BookingsGrid = (props) => {
   const Row = ({ id, client, date, address, price } = props) => {
-    if (id === undefined) {
-      return (
-        <tr className="table-row">
-          <td colSpan={5}>No hay datos </td>
-        </tr>
-      );
-    }
     return (
       <tr className="table-row">
         <td>{id}</td>
@@ -50,7 +43,17 @@ const BookingsGrid = (props) => {
         </tr>
       </thead>
       <tbody className="table-body">
-        {props.data.length > 0 ? renderRows : <Row />}
+        {props.isLoading ? (
+          <tr className="table-row empty-row">
+            <td colSpan={5}>Loadig ... </td>
+          </tr>
+        ) : props.data.length > 0 ? (
+          renderRows
+        ) : (
+          <tr className="table-row empty-row">
+            <td colSpan={5}>No se encontraron resultados. </td>
+          </tr>
+        )}
       </tbody>
     </table>
   );

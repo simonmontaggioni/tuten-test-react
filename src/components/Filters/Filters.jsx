@@ -29,8 +29,30 @@ const Filters = (props) => {
     const addressFilterValue = e.target.value;
     props.handleAddressFiltersChange(addressFilterValue);
   };
+  const handleEmailChange = (e) => {
+    const userEmail = e.target.value;
+    props.handleEmailChange(userEmail);
+  };
+  const handleEmailSearch = (e) => {
+    const emailFilterValue = e.target.value;
+    props.handleEmailSearch(emailFilterValue);
+  };
   return (
     <div className="filters-container">
+      <fieldset className="user-email-filter-wrapper">
+        <legend>Buscar Usuario</legend>
+        <div className="input-wrapper user-email-filter">
+          <label htmlFor="user-email-filter">Usuario</label>
+          <input
+            type="email"
+            name="user-email-filter"
+            id="user-email-filter"
+            placeholder="user email"
+            onChange={handleEmailChange}
+          />
+        </div>
+        <button onClick={handleEmailSearch}>Search User Bookings</button>
+      </fieldset>
       <fieldset className="id-filter-wrapper">
         <legend>Filtros por ID</legend>
         <div className="input-wrapper id-filter-number">

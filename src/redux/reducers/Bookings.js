@@ -25,6 +25,27 @@ const applyFilters = (
 ) => {
   let filteredBookings = bookings;
 
+  console.log(
+    `%c Filters applied:
+    id %o
+    >= id %o
+    <=id %o
+    price %o
+    >= price %o
+    <= price %o
+    address %o
+    %o`,
+    "color: blue;",
+    idFilterValue,
+    idGreaterEqualThanFilterValue,
+    idLessEqualThanFilterValue,
+    priceFilterValue,
+    priceGreaterEqualThanFilterValue,
+    priceLessEqualThanFilterValue,
+    addressFilterValue,
+    filteredBookings
+  );
+
   if (idFilterValue !== null) {
     const filteredBookingsById = filteredBookings.filter((booking) =>
       booking.bookingId.toString().includes(idFilterValue)
